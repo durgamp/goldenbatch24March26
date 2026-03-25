@@ -628,7 +628,7 @@ Each file has rows = time steps and columns = batch IDs:
                                             save_golden_profile(_db, _run.id, gp, cpp_cols)
                                         st.session_state["db_run_id"] = _run.id
                                 except Exception as _db_exc:
-                                    st.caption(f"Database save skipped: {_db_exc}")
+                                    st.warning(f"Database save failed: {_db_exc}")
                                 st.success(
                                     f"Loaded {len(b_df)} batches × {len(cpp_cols)} CPPs "
                                     f"from {len(pivot_files)} pivot file(s). Pipeline ready."
@@ -733,7 +733,7 @@ Each file has rows = time steps and columns = batch IDs:
                                         save_batches(_db, _run.id, b_df)
                                         st.session_state["db_run_id"] = _run.id
                                 except Exception as _db_exc:
-                                    st.caption(f"Database save skipped: {_db_exc}")
+                                    st.warning(f"Database save failed: {_db_exc}")
                                 st.success(
                                     f"Loaded {len(b_df)} batches × {len(cpp_cols)} CPPs. "
                                     f"Step 1 (CPP Identification) is ready. "
@@ -916,7 +916,7 @@ Each file has rows = time steps and columns = batch IDs:
                                                 save_golden_profile(_db, _run.id, gp, cpp_cols)
                                             st.session_state["db_run_id"] = _run.id
                                     except Exception as _db_exc:
-                                        st.caption(f"Database save skipped: {_db_exc}")
+                                        st.warning(f"Database save failed: {_db_exc}")
                                     n_sum_cpps = len(sum_cpp_cols) if sum_cpp_cols else 0
                                     st.success(
                                         f"Loaded {len(b_df)} batches | "
